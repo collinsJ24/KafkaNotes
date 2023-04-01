@@ -1,0 +1,85 @@
+Kafka Deep dive
+
+Fundamentals:
+
+Kafka Cluster:
+	Cluster is a series of Brokers:
+
+Brokers:
+	Consist of multiple partitions
+	Are akin to servers - have their own local storage and disk space
+	They manage partitions, replicating them across many brokers
+	
+Zookeeper:
+	Distributed coordination manager of the cluster
+	Stores ACLs and secrets
+	Failure detection and recovery
+	Manages the leader of the cluster (Leader Election)
+
+Topics:
+	Collection of related events / messages
+	Think of it as a sequence of events
+	Unlimited number of topics
+	Made up of partitions
+
+Partitions:
+	Essentially a log, messages get written to end of log
+	Consists of multiple log Segments
+	
+Structure of a kafka message:
+	Headers
+	Key
+	Value
+	Timestamp
+	
+The key of the message is used to decide which partition the event gets written to
+If there is no key provided the producer uses round robin to decide which partiton to write to	
+
+
+
+Offset of message can be used to know the last message polled by the consumer if consumer goes offline for a period of time
+You can use this to avoid reading old data by setting the Offset you want to start reading from
+
+Benefits of Kafka over RabbitMQ:
+	Durability - Multiple brokers make it more durable
+	Scalibility - Kafka scales horizontally, RabbitMQ vertically
+	Storage - Kafka can be used for long term storge
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
